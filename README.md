@@ -1,6 +1,6 @@
 # Deliveroo Clone - React Native + Spring Boot
 
-- First full stack project
+- Full Stack Project
 - Frontend: React Native
 - Backend: Spring Boot (Java) + MongoDB
 - Using Tailwind CSS for styling
