@@ -23,9 +23,6 @@ const HomeScreen = () => {
       headerShown: false,
     })
   }, [])
-  if (data) {
-    console.log(data)
-  }
 
   if(data) return (
     <SafeAreaView className="bg-white flex-1">

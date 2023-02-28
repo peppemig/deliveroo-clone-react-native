@@ -13,10 +13,6 @@ const FeaturedRow = ({id, title, desc}) => {
       searchFeaturedRow(id)
     }, []);
 
-    if (data) {
-        console.log(data[0])
-    }
-
   if (data) return (
 
     <View>
@@ -45,6 +41,7 @@ const FeaturedRow = ({id, title, desc}) => {
                 rating={data.rating}
                 genre={data.category}
                 address={data.address}
+                reviews={data.reviews}
                 />
             ))}
 

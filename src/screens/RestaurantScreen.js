@@ -1,12 +1,22 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeftIcon, ChevronRightIcon, MapPinIcon, StarIcon} from 'react-native-heroicons/solid' 
 import { QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
+import useDishes from '../hooks/useDishes';
+import DishRow from '../components/DishRow';
+
+
 
 const RestaurantScreen = () => {
     const navigation = useNavigation();
+
+    const [{data, loading, error}, searchDishes] = useDishes();
+
+    useEffect(() => {
+        searchDishes(id)
+    }, []);
 
     // HIDE TOP NAV BAR
     useLayoutEffect(() => {
@@ -28,9 +38,11 @@ const RestaurantScreen = () => {
         dishes,
         long,
         lat,
+        reviews
     }} = useRoute();
 
-  return (
+
+  if (data) return (
     <ScrollView>
         <View className="relative shadow">
             <Image className="w-full h-56 bg-gray-300 p-4" source={{uri: imgUrl}} />
@@ -48,7 +60,7 @@ const RestaurantScreen = () => {
                         <View className="flex-row items-center space-x-1">
                             <StarIcon color="green" opacity={0.5} size={22}/>
                             <Text className="text-xs">
-                                <Text className="text-green-500">{rating} ·</Text>
+                                <Text className="text-green-500">{rating} · {reviews} recensioni</Text>
                             </Text>
                             <MapPinIcon color="gray" opacity={0.5} size={22}/>
                             <Text className="text-xs">
@@ -70,6 +82,22 @@ const RestaurantScreen = () => {
             </View>
 
         </View>
+
+        <View>
+            <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
+        </View>
+
+        {data.map(data => (
+            <DishRow 
+                id={data.id}
+                key={data.id} 
+                name={data.name}
+                imgUrl={data.imgUrl} 
+                short_description={data.description}
+                price={data.price}
+                />
+            ))}
+
     </ScrollView>
   )
 }
