@@ -1,12 +1,14 @@
 import { View, Text, Image, TextInput, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserIcon, ChevronDownIcon, MagnifyingGlassIcon, AdjustmentsHorizontalIcon } from 'react-native-heroicons/outline'
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
 
+
 const HomeScreen = () => {
+
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
@@ -14,6 +16,7 @@ const HomeScreen = () => {
       headerShown: false,
     })
   }, [])
+
 
   return (
     <SafeAreaView className="bg-white flex-1">
