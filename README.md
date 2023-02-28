@@ -22,6 +22,4 @@ CURRENT SPRINGBOOT ENDPOINTS:
 
 !! 28-02-23 !!
 
-![1](https://user-images.githubusercontent.com/120139042/221999275-16d1675c-78f3-467b-86be-fa7eac934482.png)
-
-![2](https://user-images.githubusercontent.com/120139042/221999297-01545ea5-e80e-4e1c-abbf-2b84471216a8.png)
+![1](https://user-images.githubusercontent.com/120139042/221999275-16d1675c-78f3-467b-86be-fa7eac934482.png)![2](https://user-images.githubusercontent.com/120139042/221999297-01545ea5-e80e-4e1c-abbf-2b84471216a8.png)
