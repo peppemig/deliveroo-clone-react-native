@@ -3,7 +3,6 @@
 - First full stack project
 - Frontend: React Native
 - Backend: Spring Boot (Java) + MongoDB
-- First project from Sonny Sangha course
 - Using Tailwind CSS for styling
 
 ---------------
