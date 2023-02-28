@@ -25,6 +25,8 @@ public class Restaurant {
 
     private Float rating;
 
+    private Integer reviews;
+
     private String address;
 
     private String description;

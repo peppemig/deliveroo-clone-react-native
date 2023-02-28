@@ -3,6 +3,7 @@ package it.peppemig.deliverooclone.controllers;
 import it.peppemig.deliverooclone.models.Featured;
 import it.peppemig.deliverooclone.services.FeaturedService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
