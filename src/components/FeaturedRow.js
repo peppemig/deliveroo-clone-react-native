@@ -1,10 +1,24 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
 import RestaurantCard from './RestaurantCard'
+import useFeaturedRow from '../hooks/useFeaturedRow'
+
 
 const FeaturedRow = ({id, title, desc}) => {
-  return (
+
+    const [{data, loading, error}, searchFeaturedRow] = useFeaturedRow();
+
+    useEffect(() => {
+      searchFeaturedRow(id)
+    }, []);
+
+    if (data) {
+        console.log(data[0])
+    }
+
+  if (data) return (
+
     <View>
         <View className="mt-4 flex-row items-center justify-between px-4">
             <Text className="font-bold text-lg">{title}</Text>
@@ -20,33 +34,21 @@ const FeaturedRow = ({id, title, desc}) => {
             className="pt-4 pb-4"
         >
             {/* restaurant cards */}
-            <RestaurantCard 
-                id={123}
-                imgUrl="https://links.papareact.com/gn7"
-                title="Yo! Sushi"
-                rating={4.5}
-                genre="Japanese"
-                address="123 Main St."
-                short_description="This is a short description"
-                dishes={[]}
-                long={20}
-                lat={0}
-            />
 
+            {data.map(data => (
             <RestaurantCard 
-                id={123}
-                imgUrl="https://links.papareact.com/gn7"
-                title="Yo! Sushi"
-                rating={4.5}
-                genre="Japanese"
-                address="123 Main St."
-                short_description="This is a short description"
-                dishes={[]}
-                long={20}
-                lat={0}
-            />
+                id={data.id}
+                key={data.name} 
+                title={data.restName}
+                imgUrl={data.restImgUrl} 
+                short_description={data.description}
+                rating={data.rating}
+                genre={data.category}
+                address={data.address}
+                />
+            ))}
 
-            <RestaurantCard 
+            {/* <RestaurantCard 
                 id={123}
                 imgUrl="https://links.papareact.com/gn7"
                 title="Yo! Sushi"
@@ -57,7 +59,7 @@ const FeaturedRow = ({id, title, desc}) => {
                 dishes={[]}
                 long={20}
                 lat={0}
-            />
+            /> */}
 
         </ScrollView>
     </View>

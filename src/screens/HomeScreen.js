@@ -5,9 +5,16 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserIcon, ChevronDownIcon, MagnifyingGlassIcon, AdjustmentsHorizontalIcon } from 'react-native-heroicons/outline'
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
+import useFeaturedCategories from '../hooks/useFeaturedCategories';
 
 
 const HomeScreen = () => {
+
+  const [{data, loading, error}, searchFeaturedCategories] = useFeaturedCategories();
+
+  useEffect(() => {
+    searchFeaturedCategories()
+  }, []);
 
   const navigation = useNavigation();
 
@@ -16,9 +23,11 @@ const HomeScreen = () => {
       headerShown: false,
     })
   }, [])
+  if (data) {
+    console.log(data)
+  }
 
-
-  return (
+  if(data) return (
     <SafeAreaView className="bg-white flex-1">
 
       {/* HEADER */}
@@ -54,27 +63,11 @@ const HomeScreen = () => {
         {/* categories */}
         <Categories />
 
-        {/* featured */}
-        <FeaturedRow
-          id="123" 
-          title="Featured" 
-          desc="Paid placements from our partners" 
-        />
-
-        {/* discounts */}
-        <FeaturedRow
-          id="1234" 
-          title="Tasty Discounts" 
-          desc="Everyone's been enjoying these juicy discounts!" 
-        />
-
-        {/* offers */}
-        <FeaturedRow
-          id="12345" 
-          title="Offers near you" 
-          desc="Why not support your local restaurant tonight?" 
-        />
-
+        {/* categories card*/}
+        {data.map(data => (
+          <FeaturedRow key={data.name} id={data.id} title={data.name} desc={data.description}/>
+        ))}
+        
       </ScrollView>
 
 
