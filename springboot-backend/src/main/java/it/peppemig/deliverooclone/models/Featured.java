@@ -8,13 +8,14 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
-@Document(collection = "categories")
+@Document(collection = "featured")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Category {
+public class Featured {
 
     @Id
     @Field("_id")
@@ -22,5 +23,5 @@ public class Category {
 
     private String name;
 
-    private String imgUrl;
+    private String description;
 }
