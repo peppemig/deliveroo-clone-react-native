@@ -12,7 +12,11 @@ CURRENT SPRINGBOOT ENDPOINTS:
 
 - /api/v1/categories  ->  GET ALL CATEGORIES
 - /api/v1/restaurants  ->  GET ALL RESTAURANTS
+- /api/v1/restaurants/<restaurantID> -> GET RESTAURANT BY RESTAURANTID
+- /api/v1/featured  ->  GET ALL FEATURED CATEGORIES
 - /api/v1/restaurants/category/<categoryID>  ->  GET RESTAURANTS BY CATEGORYID
+- /api/v1/restaurants/featured/<featuredID> -> GET RESTAURANTS BY FEATUREDID
+
 
 !! 28-02-23 !!
 
