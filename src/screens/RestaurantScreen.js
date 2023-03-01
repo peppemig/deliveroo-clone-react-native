@@ -6,6 +6,7 @@ import { ArrowLeftIcon, ChevronRightIcon, MapPinIcon, StarIcon} from 'react-nati
 import { QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
 import useDishes from '../hooks/useDishes';
 import DishRow from '../components/DishRow';
+import Basket from '../components/Basket';
 
 
 
@@ -43,9 +44,15 @@ const RestaurantScreen = () => {
 
 
   if (data) return (
+    <>
+    <Basket />
+
+
     <ScrollView>
         <View className="relative shadow">
-            <Image className="w-full h-56 bg-gray-300 p-4" source={{uri: imgUrl}} />
+            <View className="bg-white">
+            <Image className="w-full h-56 bg-white p-4 rounded-b-3xl" source={{uri: imgUrl}} />
+            </View>
 
             <TouchableOpacity onPress={navigation.goBack} className="absolute top-14 left-5 bg-gray-100 rounded-full">
                 <ArrowLeftIcon height={30} width={30} color="#00CCBB"/>
@@ -83,9 +90,9 @@ const RestaurantScreen = () => {
 
         </View>
 
-        <View>
+        <View className="pb-36">
             <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
-        </View>
+        
 
         {data.map(data => (
             <DishRow 
@@ -97,8 +104,10 @@ const RestaurantScreen = () => {
                 price={data.price}
                 />
             ))}
+        </View>
 
     </ScrollView>
+    </>
   )
 }
 
