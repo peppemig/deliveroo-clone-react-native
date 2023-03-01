@@ -3,6 +3,7 @@
 - Full Stack Project
 - Frontend: React Native
 - Backend: Spring Boot (Java) + MongoDB
+- Redux for State management
 - Using Tailwind CSS for styling
 
 ![icons](https://user-images.githubusercontent.com/120139042/222002505-45ce269a-7a2e-4fa6-89d1-cced38a72d39.png)
@@ -20,6 +21,7 @@ CURRENT SPRINGBOOT ENDPOINTS:
 - /api/v1/dishes/"restaurantID"  ->  GET DISHES BY RESTAURANTID
 
 
-!! 28-02-23 !!
+!! 02-03-23 !!
 
-![1](https://user-images.githubusercontent.com/120139042/221999275-16d1675c-78f3-467b-86be-fa7eac934482.png) ![2](https://user-images.githubusercontent.com/120139042/221999297-01545ea5-e80e-4e1c-abbf-2b84471216a8.png)
+![1](https://user-images.githubusercontent.com/120139042/221999275-16d1675c-78f3-467b-86be-fa7eac934482.png) ![basket](https://user-images.githubusercontent.com/120139042/222292664-eae88905-b11e-455c-a52b-25a8901c2b67.png)
+
