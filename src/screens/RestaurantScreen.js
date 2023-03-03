@@ -7,11 +7,14 @@ import { QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
 import useDishes from '../hooks/useDishes';
 import DishRow from '../components/DishRow';
 import Basket from '../components/Basket';
+import { useDispatch } from 'react-redux';
+import { setRestaurant } from '../features/restaurantSlice';
 
 
 
 const RestaurantScreen = () => {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const [{data, loading, error}, searchDishes] = useDishes();
 
@@ -42,6 +45,21 @@ const RestaurantScreen = () => {
         reviews
     }} = useRoute();
 
+    useEffect(() => {
+        dispatch(setRestaurant({
+            id,
+            imgUrl,
+            title,
+            rating,
+            genre,
+            address,
+            short_description,
+            dishes,
+            long,
+            lat,
+            reviews
+        }))
+    }, [dispatch])
 
   if (data) return (
     <>
